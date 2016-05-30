@@ -1,8 +1,3 @@
-const int pwm = 3;
-const int in3 = 2;
-const int in4 = 4;
-const int led = 13;
-
 class Engine {
   int Pwm, Dir1, Dir2;
   public:
@@ -22,9 +17,11 @@ class Engine {
   }
 };
 
+//E2, IN4, IN3
 Engine leftEngine(3, 2, 4);
 int leftSpeed=200;
 int rightSpeed=200;
+//E1, IN1, IN2
 Engine rightEngine(6, 5, 7);
 
 void setup() {
@@ -63,16 +60,5 @@ void loop() {
     Serial.println("A3:");
     leftEngine.Update(leftSpeed, 1);
   }
+}
 
-/*
-for(int i=120;i<256;i++) {
-  analogWrite(pwm, i);
-  delay(10);
-  //i=i+19;
-}
-for(int i=255;i>=120;i--) {
-  analogWrite(pwm, i);
-  delay(10);
-  //i=i-19;
-}*/
-}
