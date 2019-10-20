@@ -1,0 +1,417 @@
+EESchema Schematic File Version 4
+LIBS:kc_car_boards-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 6 6
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L abby:NE555 U?
+U 1 1 5DAB8147
+P 3350 1950
+F 0 "U?" H 3100 2350 50  0000 C CNN
+F 1 "NE555" H 3550 2350 50  0000 C CNN
+F 2 "" H 3350 1950 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/ne555.pdf" H 3350 1950 50  0001 C CNN
+	1    3350 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L abby:NE555 U?
+U 1 1 5DAB8AEA
+P 3350 4100
+F 0 "U?" H 3100 4450 50  0000 C CNN
+F 1 "NE555" H 3550 4450 50  0000 C CNN
+F 2 "" H 3350 4100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/ne555.pdf" H 3350 4100 50  0001 C CNN
+	1    3350 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 2150 2650 2150
+Wire Wire Line
+	2650 2150 2650 1450
+Wire Wire Line
+	2650 1450 3350 1450
+Wire Wire Line
+	3350 1450 3350 1200
+Wire Wire Line
+	3350 1550 3350 1450
+Connection ~ 3350 1450
+$Comp
+L power:VCC #PWR?
+U 1 1 5DABB894
+P 3350 1150
+F 0 "#PWR?" H 3350 1000 50  0001 C CNN
+F 1 "VCC" H 3367 1323 50  0000 C CNN
+F 2 "" H 3350 1150 50  0001 C CNN
+F 3 "" H 3350 1150 50  0001 C CNN
+	1    3350 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DABBEB8
+P 3350 2800
+F 0 "#PWR?" H 3350 2550 50  0001 C CNN
+F 1 "GND" H 3355 2627 50  0000 C CNN
+F 2 "" H 3350 2800 50  0001 C CNN
+F 3 "" H 3350 2800 50  0001 C CNN
+	1    3350 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5DABC770
+P 2500 2150
+F 0 "C?" H 2592 2196 50  0000 L CNN
+F 1 "0.1uF" H 2592 2105 50  0000 L CNN
+F 2 "" H 2500 2150 50  0001 C CNN
+F 3 "~" H 2500 2150 50  0001 C CNN
+	1    2500 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 1950 2500 1950
+Wire Wire Line
+	2500 1950 2500 2050
+Wire Wire Line
+	2500 2250 2500 2400
+Wire Wire Line
+	2500 2400 3350 2400
+Connection ~ 3350 2400
+Wire Wire Line
+	3350 2400 3350 2350
+$Comp
+L Device:R R?
+U 1 1 5DABD153
+P 4500 1700
+F 0 "R?" H 4570 1746 50  0000 L CNN
+F 1 "1K" H 4570 1655 50  0000 L CNN
+F 2 "" V 4430 1700 50  0001 C CNN
+F 3 "~" H 4500 1700 50  0001 C CNN
+	1    4500 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5DABDC3C
+P 4500 2200
+F 0 "R?" H 4570 2246 50  0000 L CNN
+F 1 "10K" H 4570 2155 50  0000 L CNN
+F 2 "" V 4430 2200 50  0001 C CNN
+F 3 "~" H 4500 2200 50  0001 C CNN
+	1    4500 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP_Small C?
+U 1 1 5DABE6B5
+P 4500 2650
+F 0 "C?" H 4588 2696 50  0000 L CNN
+F 1 "68uF" H 4588 2605 50  0000 L CNN
+F 2 "" H 4500 2650 50  0001 C CNN
+F 3 "~" H 4500 2650 50  0001 C CNN
+	1    4500 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP_Small C?
+U 1 1 5DABF29C
+P 4250 4800
+F 0 "C?" H 4338 4846 50  0000 L CNN
+F 1 "0,047uF" H 4338 4755 50  0000 L CNN
+F 2 "" H 4250 4800 50  0001 C CNN
+F 3 "~" H 4250 4800 50  0001 C CNN
+	1    4250 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP_Small C?
+U 1 1 5DABF8F7
+P 2350 4600
+F 0 "C?" H 2438 4646 50  0000 L CNN
+F 1 "100uF" H 2438 4555 50  0000 L CNN
+F 2 "" H 2350 4600 50  0001 C CNN
+F 3 "~" H 2350 4600 50  0001 C CNN
+	1    2350 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5DAC03C4
+P 2350 3550
+F 0 "R?" H 2420 3596 50  0000 L CNN
+F 1 "1K" H 2420 3505 50  0000 L CNN
+F 2 "" V 2280 3550 50  0001 C CNN
+F 3 "~" H 2350 3550 50  0001 C CNN
+	1    2350 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5DAC099D
+P 4250 3800
+F 0 "R?" H 4320 3846 50  0000 L CNN
+F 1 "1K" H 4320 3755 50  0000 L CNN
+F 2 "" V 4180 3800 50  0001 C CNN
+F 3 "~" H 4250 3800 50  0001 C CNN
+	1    4250 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5DAC130C
+P 4250 4350
+F 0 "R?" H 4320 4396 50  0000 L CNN
+F 1 "10K" H 4320 4305 50  0000 L CNN
+F 2 "" V 4180 4350 50  0001 C CNN
+F 3 "~" H 4250 4350 50  0001 C CNN
+	1    4250 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 1850 4500 1950
+Wire Wire Line
+	3850 1950 4500 1950
+Connection ~ 4500 1950
+Wire Wire Line
+	4500 1950 4500 2050
+Wire Wire Line
+	2850 1750 2850 1300
+Wire Wire Line
+	2850 1300 4150 1300
+Wire Wire Line
+	4150 1300 4150 2150
+Wire Wire Line
+	4150 2150 3850 2150
+Wire Wire Line
+	4150 2150 4150 2450
+Wire Wire Line
+	4150 2450 4500 2450
+Wire Wire Line
+	4500 2450 4500 2550
+Connection ~ 4150 2150
+Wire Wire Line
+	4500 2450 4500 2350
+Connection ~ 4500 2450
+Wire Wire Line
+	3850 3050 2350 3050
+Wire Wire Line
+	2350 3050 2350 3400
+Wire Wire Line
+	4500 2750 3350 2750
+Wire Wire Line
+	3350 2400 3350 2750
+Connection ~ 3350 2750
+Wire Wire Line
+	3350 2750 3350 2800
+Wire Wire Line
+	3850 1750 3850 3050
+Wire Wire Line
+	4500 1550 4500 1200
+Wire Wire Line
+	4500 1200 3350 1200
+Connection ~ 3350 1200
+Wire Wire Line
+	3350 1200 3350 1150
+$Comp
+L power:VCC #PWR?
+U 1 1 5DAC7470
+P 3350 3350
+F 0 "#PWR?" H 3350 3200 50  0001 C CNN
+F 1 "VCC" H 3367 3523 50  0000 C CNN
+F 2 "" H 3350 3350 50  0001 C CNN
+F 3 "" H 3350 3350 50  0001 C CNN
+	1    3350 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DAC7C40
+P 3350 5200
+F 0 "#PWR?" H 3350 4950 50  0001 C CNN
+F 1 "GND" H 3355 5027 50  0000 C CNN
+F 2 "" H 3350 5200 50  0001 C CNN
+F 3 "" H 3350 5200 50  0001 C CNN
+	1    3350 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3350 3350 3350 3650
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 5DAC9DBC
+P 4100 3150
+F 0 "J?" V 4162 3194 50  0000 L CNN
+F 1 "Buzzer" V 4253 3194 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4100 3150 50  0001 C CNN
+F 3 "~" H 4100 3150 50  0001 C CNN
+	1    4100 3150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3850 3900 4000 3900
+Wire Wire Line
+	4000 3900 4000 3350
+$Comp
+L power:GND #PWR?
+U 1 1 5DACB729
+P 4100 3550
+F 0 "#PWR?" H 4100 3300 50  0001 C CNN
+F 1 "GND" H 4105 3377 50  0000 C CNN
+F 2 "" H 4100 3550 50  0001 C CNN
+F 3 "" H 4100 3550 50  0001 C CNN
+	1    4100 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 3550 4100 3350
+$Comp
+L power:VCC #PWR?
+U 1 1 5DACC7C4
+P 4250 3550
+F 0 "#PWR?" H 4250 3400 50  0001 C CNN
+F 1 "VCC" H 4267 3723 50  0000 C CNN
+F 2 "" H 4250 3550 50  0001 C CNN
+F 3 "" H 4250 3550 50  0001 C CNN
+	1    4250 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 3550 4250 3650
+Wire Wire Line
+	4250 3950 4250 4100
+Wire Wire Line
+	3850 4100 4250 4100
+Connection ~ 4250 4100
+Wire Wire Line
+	4250 4100 4250 4200
+Wire Wire Line
+	3350 4500 3350 4900
+Wire Wire Line
+	4250 4900 3350 4900
+Connection ~ 3350 4900
+Wire Wire Line
+	3350 4900 3350 5200
+Wire Wire Line
+	4250 4700 4250 4600
+Wire Wire Line
+	2350 3700 2350 4100
+Wire Wire Line
+	2350 4100 2850 4100
+Wire Wire Line
+	2350 4100 2350 4500
+Connection ~ 2350 4100
+Wire Wire Line
+	2350 4700 2350 4900
+Wire Wire Line
+	2350 4900 3350 4900
+Wire Wire Line
+	2850 4300 2500 4300
+Wire Wire Line
+	2500 4300 2500 3650
+Wire Wire Line
+	2500 3650 3350 3650
+Connection ~ 3350 3650
+Wire Wire Line
+	3350 3650 3350 3700
+Wire Wire Line
+	3850 4300 4050 4300
+Wire Wire Line
+	4050 4300 4050 4600
+Wire Wire Line
+	4050 4600 4250 4600
+Connection ~ 4250 4600
+Wire Wire Line
+	4250 4600 4250 4500
+Wire Wire Line
+	2850 3900 2650 3900
+Wire Wire Line
+	2650 3900 2650 4600
+Wire Wire Line
+	2650 4600 4050 4600
+Connection ~ 4050 4600
+$Comp
+L Device:CP_Small C?
+U 1 1 5DAD9664
+P 6250 2750
+F 0 "C?" H 6338 2796 50  0000 L CNN
+F 1 "100uF" H 6338 2705 50  0000 L CNN
+F 2 "" H 6250 2750 50  0001 C CNN
+F 3 "~" H 6250 2750 50  0001 C CNN
+	1    6250 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 5DAD9C8C
+P 6250 2400
+F 0 "#PWR?" H 6250 2250 50  0001 C CNN
+F 1 "VCC" H 6267 2573 50  0000 C CNN
+F 2 "" H 6250 2400 50  0001 C CNN
+F 3 "" H 6250 2400 50  0001 C CNN
+	1    6250 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DADA1F3
+P 6250 3050
+F 0 "#PWR?" H 6250 2800 50  0001 C CNN
+F 1 "GND" H 6255 2877 50  0000 C CNN
+F 2 "" H 6250 3050 50  0001 C CNN
+F 3 "" H 6250 3050 50  0001 C CNN
+	1    6250 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 5DADAE39
+P 7000 2800
+F 0 "J?" H 6972 2682 50  0000 R CNN
+F 1 "Power" H 6972 2773 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7000 2800 50  0001 C CNN
+F 3 "~" H 7000 2800 50  0001 C CNN
+	1    7000 2800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6250 2850 6250 2950
+Wire Wire Line
+	6800 2800 6800 2950
+Wire Wire Line
+	6800 2950 6250 2950
+Connection ~ 6250 2950
+Wire Wire Line
+	6250 2950 6250 3050
+Wire Wire Line
+	6800 2700 6800 2550
+Wire Wire Line
+	6800 2550 6250 2550
+Wire Wire Line
+	6250 2400 6250 2450
+Connection ~ 6250 2550
+Wire Wire Line
+	6250 2550 6250 2650
+Text HLabel 5900 2950 0    50   Input ~ 0
+CONTROL
+Text HLabel 5900 2450 0    50   Input ~ 0
+POWER
+Wire Wire Line
+	5900 2450 6250 2450
+Connection ~ 6250 2450
+Wire Wire Line
+	6250 2450 6250 2550
+Wire Wire Line
+	5900 2950 6250 2950
+$EndSCHEMATC

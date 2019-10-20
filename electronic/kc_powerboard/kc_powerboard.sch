@@ -1,0 +1,154 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Regulator_Linear:AMS1117CD-5.0 U?
+U 1 1 5DAAD10A
+P 1750 1800
+F 0 "U?" H 1750 2042 50  0000 C CNN
+F 1 "AMS1117CD-5.0" H 1750 1951 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:TO-252-3_TabPin2" H 1750 2000 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 1850 1550 50  0001 C CNN
+	1    1750 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Regulator_Linear:AMS1117-3.3 U?
+U 1 1 5DAADB69
+P 2800 1800
+F 0 "U?" H 2800 2042 50  0000 C CNN
+F 1 "AMS1117-3.3" H 2800 1951 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 2800 2000 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 2900 1550 50  0001 C CNN
+	1    2800 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP_Small C?
+U 1 1 5DAAEF09
+P 1300 2000
+F 0 "C?" H 1388 2046 50  0000 L CNN
+F 1 "10uF" H 1388 1955 50  0000 L CNN
+F 2 "" H 1300 2000 50  0001 C CNN
+F 3 "~" H 1300 2000 50  0001 C CNN
+	1    1300 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP_Small C?
+U 1 1 5DAAF709
+P 2150 2000
+F 0 "C?" H 2238 2046 50  0000 L CNN
+F 1 "22uF" H 2238 1955 50  0000 L CNN
+F 2 "" H 2150 2000 50  0001 C CNN
+F 3 "~" H 2150 2000 50  0001 C CNN
+	1    2150 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP_Small C?
+U 1 1 5DAB003A
+P 3250 2000
+F 0 "C?" H 3338 2046 50  0000 L CNN
+F 1 "22uF" H 3338 1955 50  0000 L CNN
+F 2 "" H 3250 2000 50  0001 C CNN
+F 3 "~" H 3250 2000 50  0001 C CNN
+	1    3250 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 5DAB08D7
+P 1000 1450
+F 0 "#PWR?" H 1000 1300 50  0001 C CNN
+F 1 "VCC" H 1017 1623 50  0000 C CNN
+F 2 "" H 1000 1450 50  0001 C CNN
+F 3 "" H 1000 1450 50  0001 C CNN
+	1    1000 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5DAB0D2C
+P 2150 1400
+F 0 "#PWR?" H 2150 1250 50  0001 C CNN
+F 1 "+5V" H 2165 1573 50  0000 C CNN
+F 2 "" H 2150 1400 50  0001 C CNN
+F 3 "" H 2150 1400 50  0001 C CNN
+	1    2150 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5DAB13D6
+P 3250 1400
+F 0 "#PWR?" H 3250 1250 50  0001 C CNN
+F 1 "+3.3V" H 3265 1573 50  0000 C CNN
+F 2 "" H 3250 1400 50  0001 C CNN
+F 3 "" H 3250 1400 50  0001 C CNN
+	1    3250 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 5DAB1E3A
+P 1750 2200
+F 0 "#PWR?" H 1750 1950 50  0001 C CNN
+F 1 "GNDD" H 1754 2045 50  0000 C CNN
+F 2 "" H 1750 2200 50  0001 C CNN
+F 3 "" H 1750 2200 50  0001 C CNN
+	1    1750 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 1450 1000 1800
+Wire Wire Line
+	1000 1800 1300 1800
+Wire Wire Line
+	1300 1900 1300 1800
+Connection ~ 1300 1800
+Wire Wire Line
+	1300 1800 1450 1800
+Wire Wire Line
+	1300 2100 1750 2100
+Wire Wire Line
+	1750 2100 1750 2200
+Connection ~ 1750 2100
+Wire Wire Line
+	1750 2100 2150 2100
+Wire Wire Line
+	2050 1800 2150 1800
+Wire Wire Line
+	2150 1900 2150 1800
+Connection ~ 2150 1800
+Wire Wire Line
+	2150 1800 2500 1800
+NoConn ~ 3050 1650
+Wire Wire Line
+	2150 1400 2150 1800
+Wire Wire Line
+	2150 2100 2800 2100
+Connection ~ 2150 2100
+Wire Wire Line
+	3250 2100 2800 2100
+Connection ~ 2800 2100
+Wire Wire Line
+	3250 1900 3250 1800
+Wire Wire Line
+	3250 1800 3100 1800
+Wire Wire Line
+	3250 1400 3250 1800
+Connection ~ 3250 1800
+$EndSCHEMATC

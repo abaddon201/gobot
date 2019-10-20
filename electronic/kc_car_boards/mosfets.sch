@@ -1,0 +1,211 @@
+EESchema Schematic File Version 4
+LIBS:kc_car_boards-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 5 6
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Transistor_FET:IRF540N Q1
+U 1 1 5DB04B91
+P 3550 1800
+F 0 "Q1" H 3756 1846 50  0000 L CNN
+F 1 "IRF540N" H 3756 1755 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 3800 1725 50  0001 L CIN
+F 3 "http://www.irf.com/product-info/datasheets/data/irf540n.pdf" H 3550 1800 50  0001 L CNN
+	1    3550 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR0110
+U 1 1 5DB06EDA
+P 3650 2500
+F 0 "#PWR0110" H 3650 2250 50  0001 C CNN
+F 1 "GNDD" H 3654 2345 50  0000 C CNN
+F 2 "" H 3650 2500 50  0001 C CNN
+F 3 "" H 3650 2500 50  0001 C CNN
+	1    3650 2500
+	1    0    0    -1  
+$EndComp
+Text HLabel 2650 1800 0    50   Input ~ 0
+Key1
+Wire Wire Line
+	3650 2000 3650 2300
+$Comp
+L Device:R R1
+U 1 1 5DB08A41
+P 3050 1800
+F 0 "R1" V 2843 1800 50  0000 C CNN
+F 1 "100" V 2934 1800 50  0000 C CNN
+F 2 "" V 2980 1800 50  0001 C CNN
+F 3 "~" H 3050 1800 50  0001 C CNN
+	1    3050 1800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3200 1800 3300 1800
+Wire Wire Line
+	2900 1800 2650 1800
+$Comp
+L Device:R R3
+U 1 1 5DB09819
+P 3300 2150
+F 0 "R3" H 3370 2196 50  0000 L CNN
+F 1 "10K" H 3370 2105 50  0000 L CNN
+F 2 "" V 3230 2150 50  0001 C CNN
+F 3 "~" H 3300 2150 50  0001 C CNN
+	1    3300 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 2300 3650 2300
+Connection ~ 3650 2300
+Wire Wire Line
+	3300 2000 3300 1800
+Connection ~ 3300 1800
+Wire Wire Line
+	3300 1800 3350 1800
+Wire Wire Line
+	3650 1350 3650 1600
+$Comp
+L Transistor_FET:IRF540N Q2
+U 1 1 5DB0CE9B
+P 5350 1800
+F 0 "Q2" H 5556 1846 50  0000 L CNN
+F 1 "IRF540N" H 5556 1755 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5600 1725 50  0001 L CIN
+F 3 "http://www.irf.com/product-info/datasheets/data/irf540n.pdf" H 5350 1800 50  0001 L CNN
+	1    5350 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR0111
+U 1 1 5DB0CEA5
+P 5450 2500
+F 0 "#PWR0111" H 5450 2250 50  0001 C CNN
+F 1 "GNDD" H 5454 2345 50  0000 C CNN
+F 2 "" H 5450 2500 50  0001 C CNN
+F 3 "" H 5450 2500 50  0001 C CNN
+	1    5450 2500
+	1    0    0    -1  
+$EndComp
+Text HLabel 4450 1800 0    50   Input ~ 0
+Key2
+Wire Wire Line
+	5450 2000 5450 2300
+$Comp
+L Device:R R2
+U 1 1 5DB0CEB1
+P 4850 1800
+F 0 "R2" V 4643 1800 50  0000 C CNN
+F 1 "100" V 4734 1800 50  0000 C CNN
+F 2 "" V 4780 1800 50  0001 C CNN
+F 3 "~" H 4850 1800 50  0001 C CNN
+	1    4850 1800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5000 1800 5100 1800
+Wire Wire Line
+	4700 1800 4450 1800
+$Comp
+L Device:R R4
+U 1 1 5DB0CEBD
+P 5100 2150
+F 0 "R4" H 5170 2196 50  0000 L CNN
+F 1 "10K" H 5170 2105 50  0000 L CNN
+F 2 "" V 5030 2150 50  0001 C CNN
+F 3 "~" H 5100 2150 50  0001 C CNN
+	1    5100 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 2300 5450 2300
+Connection ~ 5450 2300
+Wire Wire Line
+	5100 2000 5100 1800
+Connection ~ 5100 1800
+Wire Wire Line
+	5100 1800 5150 1800
+Wire Wire Line
+	5450 1350 5450 1600
+$Comp
+L Connector:Conn_01x02_Male J4
+U 1 1 5DB16F7B
+P 3650 1150
+F 0 "J4" V 3712 1194 50  0000 L CNN
+F 1 "Load1" V 3803 1194 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3650 1150 50  0001 C CNN
+F 3 "~" H 3650 1150 50  0001 C CNN
+	1    3650 1150
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J5
+U 1 1 5DB17BDB
+P 5450 1150
+F 0 "J5" V 5512 1194 50  0000 L CNN
+F 1 "Load2" V 5603 1194 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5450 1150 50  0001 C CNN
+F 3 "~" H 5450 1150 50  0001 C CNN
+	1    5450 1150
+	0    1    1    0   
+$EndComp
+$Comp
+L power:VCC #PWR0112
+U 1 1 5DB18207
+P 3200 1000
+F 0 "#PWR0112" H 3200 850 50  0001 C CNN
+F 1 "VCC" H 3217 1173 50  0000 C CNN
+F 2 "" H 3200 1000 50  0001 C CNN
+F 3 "" H 3200 1000 50  0001 C CNN
+	1    3200 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR0113
+U 1 1 5DB188BD
+P 5200 1000
+F 0 "#PWR0113" H 5200 850 50  0001 C CNN
+F 1 "VCC" H 5217 1173 50  0000 C CNN
+F 2 "" H 5200 1000 50  0001 C CNN
+F 3 "" H 5200 1000 50  0001 C CNN
+	1    5200 1000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 1000 5200 1350
+Wire Wire Line
+	5200 1350 5350 1350
+Wire Wire Line
+	3200 1000 3200 1250
+Wire Wire Line
+	3200 1350 3550 1350
+Text GLabel 3050 1250 0    50   Input ~ 0
+VCC
+Wire Wire Line
+	3050 1250 3200 1250
+Connection ~ 3200 1250
+Wire Wire Line
+	3200 1250 3200 1350
+Wire Wire Line
+	3650 2300 3650 2500
+Text GLabel 5300 2450 0    50   Input ~ 0
+GND
+Wire Wire Line
+	5300 2450 5450 2450
+Wire Wire Line
+	5450 2300 5450 2450
+Connection ~ 5450 2450
+Wire Wire Line
+	5450 2450 5450 2500
+$EndSCHEMATC

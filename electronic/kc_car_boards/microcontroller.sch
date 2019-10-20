@@ -1,0 +1,278 @@
+EESchema Schematic File Version 4
+LIBS:kc_car_boards-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 6
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L abby:Atmega328 U4
+U 1 1 5DAE739F
+P 5300 2150
+F 0 "U4" H 5300 600 50  0000 C CNN
+F 1 "Atmega328" H 5300 400 50  0000 C CNN
+F 2 "Package_QFP:TQFP-32_7x7mm_P0.8mm" H 5300 450 50  0001 C CNN
+F 3 "" H 5300 450 50  0001 C CNN
+	1    5300 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR0102
+U 1 1 5DAE86F6
+P 5300 4750
+F 0 "#PWR0102" H 5300 4500 50  0001 C CNN
+F 1 "GNDD" H 5304 4595 50  0000 C CNN
+F 2 "" H 5300 4750 50  0001 C CNN
+F 3 "" H 5300 4750 50  0001 C CNN
+	1    5300 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0103
+U 1 1 5DAE8DDB
+P 5250 1900
+F 0 "#PWR0103" H 5250 1750 50  0001 C CNN
+F 1 "+5V" H 5265 2073 50  0000 C CNN
+F 2 "" H 5250 1900 50  0001 C CNN
+F 3 "" H 5250 1900 50  0001 C CNN
+	1    5250 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 1900 5250 2050
+Wire Wire Line
+	5150 2300 5250 2300
+Connection ~ 5250 2300
+Wire Wire Line
+	5250 2300 5400 2300
+Wire Wire Line
+	5200 4450 5300 4450
+Connection ~ 5300 4450
+Wire Wire Line
+	5300 4450 5400 4450
+Wire Wire Line
+	5300 4450 5300 4650
+$Comp
+L Device:C_Small C6
+U 1 1 5DAEA3F8
+P 5500 2050
+F 0 "C6" H 5592 2096 50  0000 L CNN
+F 1 "0.1uF" H 5592 2005 50  0000 L CNN
+F 2 "" H 5500 2050 50  0001 C CNN
+F 3 "~" H 5500 2050 50  0001 C CNN
+	1    5500 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR0104
+U 1 1 5DAEABEB
+P 5700 2200
+F 0 "#PWR0104" H 5700 1950 50  0001 C CNN
+F 1 "GNDD" H 5704 2045 50  0000 C CNN
+F 2 "" H 5700 2200 50  0001 C CNN
+F 3 "" H 5700 2200 50  0001 C CNN
+	1    5700 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 2150 5500 2300
+Wire Wire Line
+	5500 1950 5700 1950
+Wire Wire Line
+	5700 1950 5700 2200
+Text HLabel 5150 2050 0    50   Input ~ 0
++5V
+Text HLabel 5200 4650 0    50   Input ~ 0
+GND
+Wire Wire Line
+	5200 4650 5300 4650
+Connection ~ 5300 4650
+Wire Wire Line
+	5300 4650 5300 4750
+Wire Wire Line
+	5150 2050 5250 2050
+Connection ~ 5250 2050
+Wire Wire Line
+	5250 2050 5250 2300
+$Comp
+L power:GNDD #PWR0105
+U 1 1 5DAEBD30
+P 4800 2200
+F 0 "#PWR0105" H 4800 1950 50  0001 C CNN
+F 1 "GNDD" H 4804 2045 50  0000 C CNN
+F 2 "" H 4800 2200 50  0001 C CNN
+F 3 "" H 4800 2200 50  0001 C CNN
+	1    4800 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0106
+U 1 1 5DAEC1D3
+P 4800 1700
+F 0 "#PWR0106" H 4800 1550 50  0001 C CNN
+F 1 "+5V" H 4815 1873 50  0000 C CNN
+F 2 "" H 4800 1700 50  0001 C CNN
+F 3 "" H 4800 1700 50  0001 C CNN
+	1    4800 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C5
+U 1 1 5DAEC45C
+P 4800 1950
+F 0 "C5" H 4892 1996 50  0000 L CNN
+F 1 "0.1uF" H 4892 1905 50  0000 L CNN
+F 2 "" H 4800 1950 50  0001 C CNN
+F 3 "~" H 4800 1950 50  0001 C CNN
+	1    4800 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 1850 4800 1700
+Wire Wire Line
+	4800 2050 4800 2200
+$Comp
+L Device:Crystal_GND2_Small Y1
+U 1 1 5DAEDD06
+P 4150 3350
+F 0 "Y1" H 4150 3575 50  0000 C CNN
+F 1 "16MHz" H 4150 3484 50  0000 C CNN
+F 2 "" H 4150 3350 50  0001 C CNN
+F 3 "~" H 4150 3350 50  0001 C CNN
+	1    4150 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 3350 4600 3350
+Wire Wire Line
+	4050 3350 4050 3250
+Wire Wire Line
+	4050 3250 4600 3250
+$Comp
+L power:GNDD #PWR0107
+U 1 1 5DAEEFAA
+P 4150 3600
+F 0 "#PWR0107" H 4150 3350 50  0001 C CNN
+F 1 "GNDD" H 4154 3445 50  0000 C CNN
+F 2 "" H 4150 3600 50  0001 C CNN
+F 3 "" H 4150 3600 50  0001 C CNN
+	1    4150 3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 3600 4150 3450
+$Comp
+L Connector:Conn_01x04_Male J3
+U 1 1 5DAF01C9
+P 7500 3500
+F 0 "J3" H 7472 3474 50  0000 R CNN
+F 1 "FTDI" H 7472 3383 50  0000 R CNN
+F 2 "" H 7500 3500 50  0001 C CNN
+F 3 "~" H 7500 3500 50  0001 C CNN
+	1    7500 3500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR0108
+U 1 1 5DAF0B1F
+P 7200 3800
+F 0 "#PWR0108" H 7200 3550 50  0001 C CNN
+F 1 "GNDD" H 7204 3645 50  0000 C CNN
+F 2 "" H 7200 3800 50  0001 C CNN
+F 3 "" H 7200 3800 50  0001 C CNN
+	1    7200 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0109
+U 1 1 5DAF1243
+P 7200 3300
+F 0 "#PWR0109" H 7200 3150 50  0001 C CNN
+F 1 "+5V" H 7215 3473 50  0000 C CNN
+F 2 "" H 7200 3300 50  0001 C CNN
+F 3 "" H 7200 3300 50  0001 C CNN
+	1    7200 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7200 3300 7200 3400
+Wire Wire Line
+	7200 3400 7300 3400
+Wire Wire Line
+	7300 3700 7200 3700
+Wire Wire Line
+	7200 3700 7200 3800
+Text Label 6050 3500 0    50   ~ 0
+TX
+Text Label 6050 3600 0    50   ~ 0
+RX
+Wire Wire Line
+	5950 3500 7300 3500
+Wire Wire Line
+	5950 3600 7300 3600
+Text HLabel 3850 3150 0    50   BiDi ~ 0
+SPI_SCK
+Text HLabel 3850 3050 0    50   BiDi ~ 0
+SPI_MISO
+Text HLabel 3850 2950 0    50   BiDi ~ 0
+SPI_MOSI
+Wire Wire Line
+	3850 2950 4600 2950
+Wire Wire Line
+	3850 3050 4600 3050
+Wire Wire Line
+	3850 3150 4600 3150
+Text HLabel 6500 3800 2    50   Output ~ 0
+ENA
+Text HLabel 6500 4000 2    50   Output ~ 0
+ENB
+Wire Wire Line
+	6500 4000 5950 4000
+Wire Wire Line
+	6500 3800 5950 3800
+Text HLabel 6500 3700 2    50   Output ~ 0
+IN1
+Text HLabel 6500 3900 2    50   Output ~ 0
+IN2
+Text HLabel 6500 4100 2    50   Output ~ 0
+IN3
+Text HLabel 6500 4200 2    50   Output ~ 0
+IN4
+Wire Wire Line
+	6500 3700 5950 3700
+Wire Wire Line
+	6500 3900 5950 3900
+Wire Wire Line
+	6500 4100 5950 4100
+Wire Wire Line
+	6500 4200 5950 4200
+Text HLabel 3850 2850 0    50   Output ~ 0
+SPI_SEL1
+Wire Wire Line
+	3850 2850 4600 2850
+Text HLabel 3850 2750 0    50   Output ~ 0
+SPI_SEL2
+Text HLabel 3850 2650 0    50   Output ~ 0
+SPI_SEL3
+Wire Wire Line
+	3850 2650 4600 2650
+Wire Wire Line
+	3850 2750 4600 2750
+Text HLabel 6400 2600 2    50   Output ~ 0
+MOSF1
+Text HLabel 6400 2700 2    50   Output ~ 0
+MOSF2
+Wire Wire Line
+	6400 2700 5950 2700
+Wire Wire Line
+	5950 2600 6400 2600
+$EndSCHEMATC
