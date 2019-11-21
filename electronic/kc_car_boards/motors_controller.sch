@@ -48,10 +48,10 @@ F 3 "http://www.vishay.com/docs/88525/1n5817.pdf" H 4100 1400 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Screw_Terminal_01x02 J1
+L Connector:Screw_Terminal_01x02 J4
 U 1 1 5DAC4332
 P 5050 1800
-F 0 "J1" H 5130 1792 50  0000 L CNN
+F 0 "J4" H 5130 1792 50  0000 L CNN
 F 1 "Motor1" H 5130 1701 50  0000 L CNN
 F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 5050 1800 50  0001 C CNN
 F 3 "~" H 5050 1800 50  0001 C CNN
@@ -59,10 +59,10 @@ F 3 "~" H 5050 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Screw_Terminal_01x02 J2
+L Connector:Screw_Terminal_01x02 J5
 U 1 1 5DAC4DCC
 P 5050 2100
-F 0 "J2" H 5130 2092 50  0000 L CNN
+F 0 "J5" H 5130 2092 50  0000 L CNN
 F 1 "Motor2" H 5130 2001 50  0000 L CNN
 F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 5050 2100 50  0001 C CNN
 F 3 "~" H 5050 2100 50  0001 C CNN

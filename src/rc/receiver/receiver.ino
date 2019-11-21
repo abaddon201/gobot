@@ -1,26 +1,142 @@
-#include <SPI.h>                                          // Подключаем библиотеку  для работы с шиной SPI
-#include <nRF24L01.h>                                     // Подключаем файл настроек из библиотеки RF24
-#include <RF24.h>                                         // Подключаем библиотеку  для работы с nRF24L01+
+#include <SPI.h>
+#include "nRF24L01.h"
+#include "RF24.h"
+#include "printf.h"
+#include <EEPROM.h>
 
-RF24           radio(9, 10);                              // Создаём объект radio   для работы с библиотекой RF24, указывая номера выводов nRF24L01+ (CE, CSN)
-int            data[2];                                   // Создаём массив для приёма данных
+class Engine {
+  int Pwm, Dir1, Dir2;
+  public:
+  Engine(int pwm, int dir1, int dir2) {
+    Pwm = pwm;
+    Dir1=dir1;
+    Dir2 = dir2;
+    pinMode(Pwm, OUTPUT);
+    pinMode(Dir1, OUTPUT);
+    pinMode(Dir2, OUTPUT);
+  }
+
+  void Update(int speed, bool forward) {
+    digitalWrite(Dir1, forward);
+    digitalWrite(Dir2, !forward);
+    analogWrite(Pwm, speed);
+  }
+};
+
+//E2, IN4, IN3
+Engine leftEngine(3, 4, 5);
+int leftSpeed=200;
+int rightSpeed=200;
+//E1, IN1, IN2
+Engine rightEngine(6, 7, 8);
+
+
+// Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 7 & 8 
+RF24 radio(9,10);
+
+// Topology
+const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };              // Radio pipe addresses for the 2 nodes to communicate.
+
+// A single byte to keep track of the data being sent back and forth
+byte counter = 1;
+byte data[32];
+int leftZero;
+int rightZero;
+bool lamps;
+bool horn;
+
+#define LAMPS_PIN A0
+#define HORN_PIN A1
 
 void setup(){
+  lamps = false;
+  horn = false;
+  pinMode(LAMPS_PIN, OUTPUT);
+  pinMode(HORN_PIN, OUTPUT);
+  digitalWrite(LAMPS_PIN, lamps);
+  digitalWrite(HORN_PIN, horn);
+  leftEngine.Update(0, 0);
+  rightEngine.Update(0, 0);
   Serial.begin(115200);
-    radio.begin();                                        // Инициируем работу nRF24L01+
-    radio.setChannel(5);                                  // Указываем канал приёма данных (от 0 до 127), 5 - значит приём данных осуществляется на частоте 2,405 ГГц (на одном канале может быть только 1 приёмник и до 6 передатчиков)
-    radio.setDataRate     (RF24_1MBPS);                   // Указываем скорость передачи данных (RF24_250KBPS, RF24_1MBPS, RF24_2MBPS), RF24_1MBPS - 1Мбит/сек
-    radio.setPALevel      (RF24_PA_HIGH);                 // Указываем мощность передатчика (RF24_PA_MIN=-18dBm, RF24_PA_LOW=-12dBm, RF24_PA_HIGH=-6dBm, RF24_PA_MAX=0dBm)
-    radio.openReadingPipe (1, 0x1234567890LL);            // Открываем 1 трубу с идентификатором 0x1234567890 для приема данных (на ожном канале может быть открыто до 6 разных труб, которые должны отличаться только последним байтом идентификатора)
-    radio.startListening  ();                             // Включаем приемник, начинаем прослушивать открытую трубу
-//  radio.stopListening   ();                             // Выключаем приёмник, если потребуется передать данные
+  printf_begin();
+  Serial.print(F("\n\rRF24/examples/pingpair_ack/\n\rROLE: "));
+  leftZero = EEPROM.read(0);
+  rightZero = EEPROM.read(1);
+  radio.begin();
+  radio.setAutoAck(1);                    // Ensure autoACK is enabled
+  //radio.enableAckPayload();               // Allow optional ack payloads
+  radio.setRetries(0,15);                 // Smallest time between retries, max no. of retries
+  radio.setPayloadSize(32);                // Here we are sending 1-byte payloads to test the call-response speed
+  radio.openWritingPipe(pipes[1]);        // Both radios listen on the same pipes by default, and switch when writing
+  radio.openReadingPipe(1,pipes[0]);
+  radio.startListening();                 // Start listening
+  radio.printDetails();                   // Dump the configuration of the rf unit for debugging
+  leftEngine.Update(0, 0);
+  rightEngine.Update(0, 0);
 }
-void loop(){
-    if(radio.available()){                                // Если в буфере имеются принятые данные
-        radio.read(&data, sizeof(data));                  // Читаем данные в массив data и указываем сколько байт читать
-        int val = (data[1]<<8)|data[0];
 
-        Serial.print(val);
-        Serial.print(" ");
+//
+// Compute a Dallas Semiconductor 8 bit CRC directly.
+// this is much slower, but much smaller, than the lookup table.
+//
+uint8_t crc8(const uint8_t *addr, uint8_t len) {
+  uint8_t crc = 0;
+  while (len--) {
+    uint8_t inbyte = *addr++;
+    for (uint8_t i = 8; i; i--) {
+      uint8_t mix = (crc ^ inbyte) & 0x01;
+      crc >>= 1;
+      if (mix) crc ^= 0x8C;
+      inbyte >>= 1;
     }
+  }
+  return crc;
+}
+
+unsigned long lastTime = 0;
+
+void loop(void) {
+    byte pipeNo;
+    byte gotByte;                                       // Dump the payloads until we've gotten everything
+    unsigned long time = millis();                          // Take the time, and send it.  This will block until complete   
+    if (time - lastTime > 600) {
+      leftEngine.Update(0, 0);
+      rightEngine.Update(0, 0);
+    }
+    while( radio.available(&pipeNo)){
+      radio.read( data, 32 );
+      byte crc = crc8(&(data[1]), 31);
+      if (crc!=data[0])
+        continue;
+      if (data[1] > 1) {
+        // other target, we are 1 (main processor)
+        // TODO: send to the other target
+        continue;
+      }
+
+      lastTime = time;
+      switch(data[2]) {
+        case 0: //reset cmd
+          EEPROM.update(0, data[3]); // zero for left stick
+          EEPROM.update(1, data[4]); // zero for right stick
+          leftZero = data[3];
+          rightZero = data[4];
+        break;
+        case 1: //new data cmd
+          int dx = (int)data[3] - leftZero;
+          int dy = (int)data[4] - rightZero;
+          leftEngine.Update(abs(dx), dx>0);
+          rightEngine.Update(abs(dy), dy>0);
+          if (data[5] & 0x01) {
+            lamps = !lamps;
+            digitalWrite(LAMPS_PIN, lamps);
+          }
+          if (data[5] & 0x02) {
+            horn = !horn;
+            digitalWrite(HORN_PIN, horn);
+          }
+        break;
+      }
+      //radio.writeAckPayload(pipeNo,&gotByte, 1 );    
+   }
 }

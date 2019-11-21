@@ -150,10 +150,10 @@ VCC
 Wire Wire Line
 	2750 2800 3500 2800
 $Comp
-L Connector:Conn_01x04_Male J6
+L Connector:Conn_01x04_Male J1
 U 1 1 5DB1E135
 P 2150 4550
-F 0 "J6" H 2122 4432 50  0000 R CNN
+F 0 "J1" H 2122 4432 50  0000 R CNN
 F 1 "SPI3" H 2122 4523 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 2150 4550 50  0001 C CNN
 F 3 "~" H 2150 4550 50  0001 C CNN
@@ -161,10 +161,10 @@ F 3 "~" H 2150 4550 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector:Conn_01x04_Male J7
+L Connector:Conn_01x04_Male J2
 U 1 1 5DB227B2
 P 2150 5100
-F 0 "J7" H 2122 4982 50  0000 R CNN
+F 0 "J2" H 2122 4982 50  0000 R CNN
 F 1 "SPI2" H 2122 5073 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 2150 5100 50  0001 C CNN
 F 3 "~" H 2150 5100 50  0001 C CNN
@@ -172,10 +172,10 @@ F 3 "~" H 2150 5100 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector:Conn_01x04_Male J8
+L Connector:Conn_01x04_Male J3
 U 1 1 5DB22E53
 P 2150 5600
-F 0 "J8" H 2122 5482 50  0000 R CNN
+F 0 "J3" H 2122 5482 50  0000 R CNN
 F 1 "SPI1" H 2122 5573 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 2150 5600 50  0001 C CNN
 F 3 "~" H 2150 5600 50  0001 C CNN

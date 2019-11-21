@@ -1,29 +1,108 @@
-#include <SPI.h>                                          // Подключаем библиотеку для работы с шиной SPI
-#include <nRF24L01.h>                                     // Подключаем файл настроек из библиотеки RF24
-#include <RF24.h>                                         // Подключаем библиотеку для работы с nRF24L01+
+#include <SPI.h>
+#include "nRF24L01.h"
+#include "RF24.h"
+#include "printf.h"
 
+// Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 7 & 8 
+RF24 radio(9,10);
 
-RF24           radio(9, 10);                              // Создаём объект radio для работы с библиотекой RF24, указывая номера выводов nRF24L01+ (CE, CSN)
-int            data[2];                                   // Создаём массив для приёма данных
-
-int counter;
+// Topology
+const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };              // Radio pipe addresses for the 2 nodes to communicate.
 
 void setup(){
   Serial.begin(115200);
-    radio.begin();                                        // Инициируем работу nRF24L01+
-    radio.setChannel(5);                                  // Указываем канал передачи данных (от 0 до 127), 5 - значит передача данных осуществляется на частоте 2,405 ГГц (на одном канале может быть только 1 приёмник и до 6 передатчиков)
-    radio.setDataRate     (RF24_1MBPS);                   // Указываем скорость передачи данных (RF24_250KBPS, RF24_1MBPS, RF24_2MBPS), RF24_1MBPS - 1Мбит/сек
-    radio.setPALevel      (RF24_PA_HIGH);                 // Указываем мощность передатчика (RF24_PA_MIN=-18dBm, RF24_PA_LOW=-12dBm, RF24_PA_HIGH=-6dBm, RF24_PA_MAX=0dBm)
-    radio.openWritingPipe (0x1234567890LL);               // Открываем трубу с идентификатором 0x1234567890 для передачи данных (на одном канале может быть открыто до 6 разных труб, которые должны отличаться только последним байтом идентификатора)
-    counter = 0;
+  printf_begin();
+  Serial.print(F("\n\rRF24/examples/pingpair_ack/\n\rROLE: "));
+
+  // Setup and configure rf radio
+
+  radio.begin();
+  radio.setAutoAck(1);                    // Ensure autoACK is enabled
+  radio.enableAckPayload();               // Allow optional ack payloads
+  radio.setRetries(0,15);                 // Smallest time between retries, max no. of retries
+  radio.setPayloadSize(32);                // Here we are sending 1-byte payloads to test the call-response speed
+  radio.openWritingPipe(pipes[0]);
+  radio.openReadingPipe(1,pipes[1]);
+  radio.stopListening();                                  // First, stop listening so we can talk.
+  radio.printDetails();                   // Dump the configuration of the rf unit for debugging
+
+  pinMode(2, INPUT_PULLUP);
+  pinMode(3, INPUT_PULLUP);
+  //pinMode(A0, INPUT);
+  //pinMode(A1, INPUT);
 }
 
-void loop(){
-  byte a1 = counter & 0xff;
-  byte a2 = counter >> 8;
-    data[0] = a1;                             // считываем показания Trema слайдера с вывода A1 и записываем их в 0 элемент массива data
-    data[1] = a2;                             // считываем показания Trema потенциометра с вывода A2 и записываем их в 1 элемент массива data
-    bool res = radio.write(&data, sizeof(data));                     // отправляем данные из массива data указывая сколько байт массива мы хотим отправить. Отправить данные можно с проверкой их доставки: if( radio.write(&data, sizeof(data)) ){данные приняты приёмником;}else{данные не приняты приёмником;}
-    Serial.print(res);
-    counter++;
+byte data[32];
+
+//
+// Compute a Dallas Semiconductor 8 bit CRC directly.
+// this is much slower, but much smaller, than the lookup table.
+//
+uint8_t crc8(const uint8_t *addr, uint8_t len) {
+  uint8_t crc = 0;
+  while (len--) {
+    uint8_t inbyte = *addr++;
+    for (uint8_t i = 8; i; i--) {
+      uint8_t mix = (crc ^ inbyte) & 0x01;
+      crc >>= 1;
+      if (mix) crc ^= 0x8C;
+      inbyte >>= 1;
+    }
+  }
+  return crc;
+}
+
+unsigned long lastTime = 0;
+
+bool oldLamps;
+bool oldHorn;
+
+void loop(void) {
+    radio.stopListening();                                  // First, stop listening so we can talk.
+    
+    unsigned long time = micros();                          // Take the time, and send it.  This will block until complete   
+                                                            //Called when STANDBY-I mode is engaged (User is finished sending)
+    bool lamps = !digitalRead(2);
+    bool horn = !digitalRead(3);
+    byte leftStick = analogRead(A0)>>2;
+    byte rightStick = analogRead(A1)>>2;
+
+    if (((oldLamps!=lamps) || (oldHorn!=horn)) && (time-lastTime) > 500) {
+      lastTime = time;
+      oldLamps = lamps;
+      oldHorn = horn;
+    }
+    if (oldLamps && oldHorn) {
+      //reset cmd
+      data[1] = 1;
+      data[2] = 0;
+      data[3] = leftStick;
+      data[4] = rightStick;
+    } else {
+      data[1] = 1;
+      data[2] = 1;
+      data[3] = leftStick;
+      data[4] = rightStick;
+      data[5] = oldLamps | (oldHorn<<1);
+    }
+
+    data[0] = crc8(&(data[1]), 31);
+    if (!radio.write( data, 32 )){
+      Serial.println(F("failed."));      
+    }else{
+
+/*      if(!radio.available()){ 
+        Serial.println(F("Blank Payload Received.")); 
+      }else{
+        while(radio.available() ){
+          unsigned long tim = micros();
+          radio.read( &gotByte, 1 );
+          printf("Got response %d, round-trip delay: %lu microseconds\n\r",gotByte,tim-time);
+          counter++;
+        }
+      }
+*/
+    }
+    // Try again later
+    //delay(1000);
 }
