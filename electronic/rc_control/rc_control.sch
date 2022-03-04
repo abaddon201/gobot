@@ -1,0 +1,423 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L rc:ArduinoProMini U?
+U 1 1 61740E3A
+P 1750 1350
+F 0 "U?" H 1700 850 50  0000 C CNN
+F 1 "ArduinoProMini" H 1750 500 50  0000 C CNN
+F 2 "" H 1800 1350 50  0001 C CNN
+F 3 "" H 1800 1350 50  0001 C CNN
+	1    1750 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L rc:ArduinoProMini U?
+U 1 1 61742E95
+P 4350 1300
+F 0 "U?" H 4350 -489 50  0000 C CNN
+F 1 "ArduinoProMini" H 4350 -580 50  0000 C CNN
+F 2 "" H 4400 1300 50  0001 C CNN
+F 3 "" H 4400 1300 50  0001 C CNN
+	1    4350 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61744554
+P 2850 1950
+F 0 "#PWR?" H 2850 1700 50  0001 C CNN
+F 1 "GND" H 2855 1777 50  0000 C CNN
+F 2 "" H 2850 1950 50  0001 C CNN
+F 3 "" H 2850 1950 50  0001 C CNN
+	1    2850 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L RF:NRF24L01_Breakout U?
+U 1 1 61745112
+P 7750 2200
+F 0 "U?" H 8130 2246 50  0000 L CNN
+F 1 "NRF24L01_Breakout" H 8130 2155 50  0000 L CNN
+F 2 "RF_Module:nRF24L01_Breakout" H 7900 2800 50  0001 L CIN
+F 3 "http://www.nordicsemi.com/eng/content/download/2730/34105/file/nRF24L01_Product_Specification_v2_0.pdf" H 7750 2100 50  0001 C CNN
+	1    7750 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6174637C
+P 7750 2900
+F 0 "#PWR?" H 7750 2650 50  0001 C CNN
+F 1 "GND" H 7755 2727 50  0000 C CNN
+F 2 "" H 7750 2900 50  0001 C CNN
+F 3 "" H 7750 2900 50  0001 C CNN
+	1    7750 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 2800 7750 2900
+Wire Wire Line
+	2300 1850 2850 1850
+Wire Wire Line
+	2850 1850 2850 1950
+$Comp
+L power:GND #PWR?
+U 1 1 617470EF
+P 5400 1900
+F 0 "#PWR?" H 5400 1650 50  0001 C CNN
+F 1 "GND" H 5405 1727 50  0000 C CNN
+F 2 "" H 5400 1900 50  0001 C CNN
+F 3 "" H 5400 1900 50  0001 C CNN
+	1    5400 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4900 1800 5400 1800
+Wire Wire Line
+	5400 1800 5400 1900
+Wire Wire Line
+	7000 2200 7250 2200
+Text Label 7000 2200 0    50   ~ 0
+~CSN
+Wire Wire Line
+	5150 2800 4900 2800
+Text Label 5000 2800 0    50   ~ 0
+~CSN
+Wire Wire Line
+	7000 2400 7250 2400
+Wire Wire Line
+	7000 2500 7250 2500
+Text Label 7000 2400 0    50   ~ 0
+CE
+Text Label 7000 2500 0    50   ~ 0
+IRQ
+Wire Wire Line
+	3800 2800 3500 2800
+Text Label 3650 2800 0    50   ~ 0
+CE
+Wire Wire Line
+	7250 1900 7000 1900
+Wire Wire Line
+	7250 2000 7000 2000
+Wire Wire Line
+	7250 2100 7000 2100
+Text Label 7000 1900 0    50   ~ 0
+MOSI
+Text Label 7000 2000 0    50   ~ 0
+MISO
+Text Label 7000 2100 0    50   ~ 0
+SCK
+$Comp
+L power:+3.3V #PWR?
+U 1 1 6174BACC
+P 7750 1450
+F 0 "#PWR?" H 7750 1300 50  0001 C CNN
+F 1 "+3.3V" H 7765 1623 50  0000 C CNN
+F 2 "" H 7750 1450 50  0001 C CNN
+F 3 "" H 7750 1450 50  0001 C CNN
+	1    7750 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 1450 7750 1600
+Wire Wire Line
+	4900 2700 5150 2700
+Wire Wire Line
+	4900 2600 5150 2600
+Wire Wire Line
+	4900 2500 5150 2500
+Wire Wire Line
+	4900 2400 5150 2400
+Text Label 4950 2700 0    50   ~ 0
+MISO
+Text Label 4950 2600 0    50   ~ 0
+MOSI
+Text Label 4950 2500 0    50   ~ 0
+SCK
+$Comp
+L power:+5V #PWR?
+U 1 1 6174DC07
+P 5150 2000
+F 0 "#PWR?" H 5150 1850 50  0001 C CNN
+F 1 "+5V" H 5165 2173 50  0000 C CNN
+F 2 "" H 5150 2000 50  0001 C CNN
+F 3 "" H 5150 2000 50  0001 C CNN
+	1    5150 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4900 2000 5150 2000
+Wire Wire Line
+	3800 2700 3500 2700
+Text Label 3500 2700 0    50   ~ 0
+A2_CE
+Wire Wire Line
+	3800 2100 3500 2100
+Wire Wire Line
+	3800 2200 3500 2200
+Wire Wire Line
+	4900 2300 5150 2300
+Text Label 4950 2300 0    50   ~ 0
+VR1_X
+Text Label 4950 2400 0    50   ~ 0
+VR2_X
+Text Label 3500 2100 0    50   ~ 0
+VR2_SW
+Text Label 3500 2200 0    50   ~ 0
+VR1_SW
+$Comp
+L power:+5V #PWR?
+U 1 1 617504DA
+P 2650 2050
+F 0 "#PWR?" H 2650 1900 50  0001 C CNN
+F 1 "+5V" H 2665 2223 50  0000 C CNN
+F 2 "" H 2650 2050 50  0001 C CNN
+F 3 "" H 2650 2050 50  0001 C CNN
+	1    2650 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 2050 2300 2050
+$Comp
+L Connector_Generic:Conn_01x05 J?
+U 1 1 61751652
+P 6100 3950
+F 0 "J?" H 6180 3992 50  0000 L CNN
+F 1 "VR1" H 6180 3901 50  0000 L CNN
+F 2 "" H 6100 3950 50  0001 C CNN
+F 3 "~" H 6100 3950 50  0001 C CNN
+	1    6100 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5900 3950 5650 3950
+Wire Wire Line
+	5900 4050 5650 4050
+Wire Wire Line
+	5900 4150 5650 4150
+$Comp
+L power:GND #PWR?
+U 1 1 61755582
+P 5450 3750
+F 0 "#PWR?" H 5450 3500 50  0001 C CNN
+F 1 "GND" V 5455 3622 50  0000 R CNN
+F 2 "" H 5450 3750 50  0001 C CNN
+F 3 "" H 5450 3750 50  0001 C CNN
+	1    5450 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61756497
+P 5450 3850
+F 0 "#PWR?" H 5450 3700 50  0001 C CNN
+F 1 "+5V" V 5465 3978 50  0000 L CNN
+F 2 "" H 5450 3850 50  0001 C CNN
+F 3 "" H 5450 3850 50  0001 C CNN
+	1    5450 3850
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5450 3750 5900 3750
+Wire Wire Line
+	5450 3850 5900 3850
+Text Label 5650 3950 0    50   ~ 0
+VR1_X
+Text Label 5650 4050 0    50   ~ 0
+VR1_Y
+Text Label 5650 4150 0    50   ~ 0
+VR1_SW
+$Comp
+L Connector_Generic:Conn_01x05 J?
+U 1 1 6175914A
+P 6100 4550
+F 0 "J?" H 6180 4592 50  0000 L CNN
+F 1 "VR2" H 6180 4501 50  0000 L CNN
+F 2 "" H 6100 4550 50  0001 C CNN
+F 3 "~" H 6100 4550 50  0001 C CNN
+	1    6100 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5900 4550 5650 4550
+Wire Wire Line
+	5900 4650 5650 4650
+Wire Wire Line
+	5900 4750 5650 4750
+$Comp
+L power:GND #PWR?
+U 1 1 617592D1
+P 5450 4350
+F 0 "#PWR?" H 5450 4100 50  0001 C CNN
+F 1 "GND" V 5455 4222 50  0000 R CNN
+F 2 "" H 5450 4350 50  0001 C CNN
+F 3 "" H 5450 4350 50  0001 C CNN
+	1    5450 4350
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 617592DB
+P 5450 4450
+F 0 "#PWR?" H 5450 4300 50  0001 C CNN
+F 1 "+5V" V 5465 4578 50  0000 L CNN
+F 2 "" H 5450 4450 50  0001 C CNN
+F 3 "" H 5450 4450 50  0001 C CNN
+	1    5450 4450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5450 4350 5900 4350
+Wire Wire Line
+	5450 4450 5900 4450
+Text Label 5650 4550 0    50   ~ 0
+VR2_X
+Text Label 5650 4650 0    50   ~ 0
+VR2_Y
+Text Label 5650 4750 0    50   ~ 0
+VR2_SW
+Wire Wire Line
+	2300 2150 2650 2150
+Wire Wire Line
+	2300 2250 2650 2250
+Wire Wire Line
+	2300 2850 2650 2850
+Wire Wire Line
+	2300 2750 2650 2750
+Wire Wire Line
+	2300 2650 2650 2650
+Wire Wire Line
+	2300 2550 2650 2550
+Wire Wire Line
+	1600 3050 1600 3350
+Wire Wire Line
+	1700 3050 1700 3350
+Text Label 2400 2150 0    50   ~ 0
+VR3_X
+Text Label 2400 2250 0    50   ~ 0
+VR3_Y
+Text Label 2400 2550 0    50   ~ 0
+SCK
+Text Label 2400 2650 0    50   ~ 0
+MOSI
+Text Label 2400 2750 0    50   ~ 0
+MISO
+Text Label 2400 2850 0    50   ~ 0
+A2_CE
+Text Label 1600 3350 1    50   ~ 0
+VR4_X
+Text Label 1700 3350 1    50   ~ 0
+VR4_Y
+$Comp
+L Connector_Generic:Conn_01x05 J?
+U 1 1 617645FF
+P 7550 3950
+F 0 "J?" H 7630 3992 50  0000 L CNN
+F 1 "VR3" H 7630 3901 50  0000 L CNN
+F 2 "" H 7550 3950 50  0001 C CNN
+F 3 "~" H 7550 3950 50  0001 C CNN
+	1    7550 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 3950 7100 3950
+Wire Wire Line
+	7350 4050 7100 4050
+Wire Wire Line
+	7350 4150 7100 4150
+$Comp
+L power:GND #PWR?
+U 1 1 617647C2
+P 6900 3750
+F 0 "#PWR?" H 6900 3500 50  0001 C CNN
+F 1 "GND" V 6905 3622 50  0000 R CNN
+F 2 "" H 6900 3750 50  0001 C CNN
+F 3 "" H 6900 3750 50  0001 C CNN
+	1    6900 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 617647CC
+P 6900 3850
+F 0 "#PWR?" H 6900 3700 50  0001 C CNN
+F 1 "+5V" V 6915 3978 50  0000 L CNN
+F 2 "" H 6900 3850 50  0001 C CNN
+F 3 "" H 6900 3850 50  0001 C CNN
+	1    6900 3850
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6900 3750 7350 3750
+Wire Wire Line
+	6900 3850 7350 3850
+Text Label 7100 3950 0    50   ~ 0
+VR3_X
+Text Label 7100 4050 0    50   ~ 0
+VR3_Y
+Text Label 7100 4150 0    50   ~ 0
+VR3_SW
+$Comp
+L Connector_Generic:Conn_01x05 J?
+U 1 1 617647DB
+P 7550 4550
+F 0 "J?" H 7630 4592 50  0000 L CNN
+F 1 "VR4" H 7630 4501 50  0000 L CNN
+F 2 "" H 7550 4550 50  0001 C CNN
+F 3 "~" H 7550 4550 50  0001 C CNN
+	1    7550 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 4550 7100 4550
+Wire Wire Line
+	7350 4650 7100 4650
+Wire Wire Line
+	7350 4750 7100 4750
+$Comp
+L power:GND #PWR?
+U 1 1 617647E8
+P 6900 4350
+F 0 "#PWR?" H 6900 4100 50  0001 C CNN
+F 1 "GND" V 6905 4222 50  0000 R CNN
+F 2 "" H 6900 4350 50  0001 C CNN
+F 3 "" H 6900 4350 50  0001 C CNN
+	1    6900 4350
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 617647F2
+P 6900 4450
+F 0 "#PWR?" H 6900 4300 50  0001 C CNN
+F 1 "+5V" V 6915 4578 50  0000 L CNN
+F 2 "" H 6900 4450 50  0001 C CNN
+F 3 "" H 6900 4450 50  0001 C CNN
+	1    6900 4450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6900 4350 7350 4350
+Wire Wire Line
+	6900 4450 7350 4450
+Text Label 7100 4550 0    50   ~ 0
+VR4_X
+Text Label 7100 4650 0    50   ~ 0
+VR4_Y
+Text Label 7100 4750 0    50   ~ 0
+VR4_SW
+$EndSCHEMATC
